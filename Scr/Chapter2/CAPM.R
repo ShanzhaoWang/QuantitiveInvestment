@@ -34,3 +34,13 @@ results_1 <- table.AnnualizedReturns(dat_ret, Rf = Rf)
 # One thing we observe from the result is that SP500 has an annual rate of return 10%, so it's not easy that we can surpass it
 
 results_2 <- table.Stats(dat_ret) # overall view of summary stats 
+
+# corvariance
+pairs(dat_ret)
+cor(dat_ret) 
+
+# alpha, beta
+PerformanceAnalytics::CAPM.alpha(dat_ret[, 1:2], dat_ret[, 3], Rf= Rf)
+PerformanceAnalytics::CAPM.beta(dat_ret[, 1:2], dat_ret[, 3], Rf= Rf)
+
+# see detailed interpretations of alpha and beta on p.60 
