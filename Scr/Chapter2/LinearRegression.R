@@ -30,3 +30,8 @@ plot(y.res)
 
 # four plots p.68
 plot(lm.ab)
+# explanation p.69
+
+# all four plots on one page
+par(mfrow = c(2,2))
+plot(lm.ab)
