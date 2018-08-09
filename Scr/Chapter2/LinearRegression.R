@@ -35,3 +35,12 @@ plot(lm.ab)
 # all four plots on one page
 par(mfrow = c(2,2))
 plot(lm.ab)
+
+# the above four plots indicate number 27, 19, 7 may affect our regression results, so let's try to remove them and see the result
+dat_new <- dat[-c(7, 19, 27), ]
+x_new <- dat_new[, 2]
+y_new <- dat_new[, 3]
+
+lm.ab2 <- lm(y_new ~ x_new + 1)
+summary(lm.ab2)
+# by comparing it with lm.ab, we can see an improvment
