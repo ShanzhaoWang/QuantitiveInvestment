@@ -44,3 +44,11 @@ y_new <- dat_new[, 3]
 lm.ab2 <- lm(y_new ~ x_new + 1)
 summary(lm.ab2)
 # by comparing it with lm.ab, we can see an improvment
+
+# prediction 
+newX <- data.frame(x= 14040)
+lm.pred <- predict(lm.ab, newX, interval = "prediction", level = 0.95)
+
+plot(y ~ x+1)
+abline(lm.ab, col = "red")
+points(rep(newX$x, 3), y = lm.pred, pch= 19, col = c('red', 'blue', 'green'))
